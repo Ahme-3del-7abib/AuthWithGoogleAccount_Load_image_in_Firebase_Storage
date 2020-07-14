@@ -76,11 +76,12 @@ public class personalDataActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         profile p = (profile) intent.getSerializableExtra("object");
-
+        
         binding.DataTv.setText("مرحبا : " + p.getName() + "\n" + "\n" + "بريدك الالكتروني :" + p.getEmail());
 
         try {
             String PhotoUrl = p.getImg();
+            img_uri = PhotoUrl;
             Picasso.with(personalDataActivity.this).load(PhotoUrl).into(binding.imgPerson);
         } catch (Exception e) {
         }
